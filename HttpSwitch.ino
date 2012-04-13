@@ -1,17 +1,13 @@
 /*
   Web Server
  
- A simple web server that shows the value of the analog input pins.
- using an Arduino Wiznet Ethernet shield. 
+ A simple web server that turns pin 8 on when it recieves
+ a GET request to `/on` and turns that pin off when
+ it receives a GET request to `/off`.
+
+ It also sends GET requests to '/heartbeat' for monitoring.
  
- Circuit:
- * Ethernet shield attached to pins 10, 11, 12, 13
- * Analog inputs attached to pins A0 through A5 (optional)
- 
- created 18 Dec 2009
- by David A. Mellis
- modified 4 Sep 2010
- by Tom Igoe
+ by Chris Continanza
  
  */
 
@@ -127,6 +123,7 @@ void loop()
     client.stop();
   }
   
+  //comment out if you don't want a heartbeat
   EthernetClient heartbeat;
   int time = millis();
   if((time % heartbeat_delay_millis < 10) && 
