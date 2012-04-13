@@ -1,6 +1,6 @@
 # Arduino HTTP Switch 
 
-This is the arduino code for a project that implements a HTTP-controllable
+This is the arduino code for a project that implements an HTTP-controllable
 power supply. 
 
 It works by turning pin 8 on when it recieves a GET request to `/on`.
